@@ -28,8 +28,8 @@ int main(){
 
   std::cout << "You see a set of stairs and hallway.\n";
   std::cout << "Where do you choose to explore?\n";
-  std::cout << "1) Stairs\n";
-  std::cout << "2) Hallway\n\n";
+  std::cout << "1) Hallway\n";
+  std::cout << "2) Stairs\n\n";
     
   for(int i = 0; i < 3 && choice1 != 1 && choice1 != 2; i++){
     
@@ -124,6 +124,163 @@ int main(){
           std::cout << "Invalid input!\n";
       }
     }
+  }
+  
+  // STEP 3
+  if(step == "Lab"){
+    std::cout << "=============================================================\n\n";
+    std::cout << "You have entered the lab.\n";
+    std::cout << "You see a drawer on the left and a red curtain on the right.\n";
+    std::cout << "Check the drawer or see what's behind the curtain?\n";
+    std::cout << "1) Drawer\n";
+    std::cout << "2) Curtain\n\n";
+    
+    for(int i = 0; i < 3 && choice3 != 1 && choice3 != 2; i++){
+    
+      std::cout << "Enter choice: ";
+      std::cin >> choice3;
+      std::cout << "\n";
+        
+      if(!(choice3) || choice3 > 2) {
+        std::cin.clear(); //clear bad input flag
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); //discard input
+        std::cout << "Invalid input; please re-enter.\n";
+      }
+    }
+    
+    switch(choice3){
+      case 1:
+        step = "Drawer";
+        points++;
+        break;
+      case 2:
+        step = "Curtain";
+        break;
+      default:
+        std::cout << "Invalid input!\n";
+    }
+    
+  }
+  else if(step == "Door"){
+    std::cout << "=============================================================\n\n";
+    std::cout << "You opened the door.\n";
+    std::cout << "In front of you is a room full of old dusty furniture.\n";
+    std::cout << "You see a dresser with a creeky door and a tall shelf.\n";
+    std::cout << "Do you open the dresser or ruffle through the shelf?\n";
+    std::cout << "1) Dresser\n";
+    std::cout << "2) Shelf\n\n";
+    
+    for(int i = 0; i < 3 && choice3 != 1 && choice3 != 2; i++){
+    
+      std::cout << "Enter choice: ";
+      std::cin >> choice3;
+      std::cout << "\n";
+        
+      if(!(choice3) || choice3 > 2) {
+        std::cin.clear(); //clear bad input flag
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); //discard input
+        std::cout << "Invalid input; please re-enter.\n";
+      }
+      
+      switch(choice3){
+        case 1:
+          step = "Dresser";
+          break;
+        case 2:
+          step = "Shelf";
+          points++;
+          break;
+        default:
+          std::cout << "Invalid input!\n";
+      }
+    }
+  }
+  else if(step == "Bedroom"){
+    std::cout << "=============================================================\n\n";
+    std::cout << "You entered the bedroom.\n";
+    std::cout << "There's a closet door in front of you and a cardboard box.\n";
+    std::cout << "Does the closet door interest you or do you look in the box?\n";
+    std::cout << "1) Closet\n";
+    std::cout << "2) Box\n\n";
+    
+    for(int i = 0; i < 3 && choice3 != 1 && choice3 != 2; i++){
+    
+      std::cout << "Enter choice: ";
+      std::cin >> choice3;
+      std::cout << "\n";
+        
+      if(!(choice3) || choice3 > 2) {
+        std::cin.clear(); //clear bad input flag
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); //discard input
+        std::cout << "Invalid input; please re-enter.\n";
+      }
+    }
+    
+    switch(choice3){
+      case 1:
+        step = "Closet";
+        break;
+      case 2:
+        step = "Box";
+        points++;
+        break;
+      default:
+        std::cout << "Invalid input!\n";
+    }
+    
+  }
+  else if(step == "TV Area"){
+    std::cout << "=============================================================\n\n";
+    std::cout << "You walked over towards the tv.\n";
+    std::cout << "There is a ripped up rug and a beaten up couch.\n";
+    std::cout << "Look under the rug or look through the couch?\n";
+    std::cout << "1) Rug\n";
+    std::cout << "2) Couch\n\n";
+    
+    for(int i = 0; i < 3 && choice3 != 1 && choice3 != 2; i++){
+    
+      std::cout << "Enter choice: ";
+      std::cin >> choice3;
+      std::cout << "\n";
+        
+      if(!(choice3) || choice3 > 2) {
+        std::cin.clear(); //clear bad input flag
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); //discard input
+        std::cout << "Invalid input; please re-enter.\n";
+      }
+      
+      switch(choice3){
+        case 1:
+          step = "Couch";
+          break;
+        case 2:
+          step = "Rug";
+          points++;
+          break;
+        default:
+          std::cout << "Invalid input!\n";
+      }
+    }
+  }
+  
+  // Ending
+  switch(points){
+    case 1:
+      std::cout << "=============================================================\n\n";
+      std::cout << "Oh no! You fell down a trap door!\n\n";
+      break;
+    case 2:
+      std::cout << "=============================================================\n\n";
+      std::cout << "No key in sight! Try again!\n\n";
+      break;
+    case 3:
+      std::cout << "=============================================================\n\n";
+      std::cout << "Congratulations! You found the key!\n\n";
+      break;
+    default:
+      std::cout << "=============================================================\n\n";
+      std::cout << "Invalid Output!\n\n";
+      break;
   }
   
   return 0;
